@@ -2,5 +2,8 @@
   "dependencies": {
     "@types/node": "^18.16.1",
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.3"
   }
 }
