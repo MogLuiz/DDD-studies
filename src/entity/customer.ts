@@ -45,4 +45,8 @@ export class Customer {
         
         this._active = true
     }
+
+    deactivate() {
+        this._active = false
+    }
 }

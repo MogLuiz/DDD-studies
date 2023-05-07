@@ -32,5 +32,13 @@ describe("Customer unir tests", () => {
 
        expect(customer.isActive()).toBe(true)
     })
+
+    it("should deactivate customer", () => {
+      const customer = new Customer("123", "customer 1",)
+
+      customer.deactivate()
+
+       expect(customer.isActive()).toBe(false)
+    })
     
 })
