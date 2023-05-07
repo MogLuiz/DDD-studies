@@ -1,3 +1,4 @@
+import { Address } from "./address"
 import { Customer } from "./customer"
 
 describe("Customer unir tests", () => {
@@ -21,4 +22,15 @@ describe("Customer unir tests", () => {
 
        expect(customer.getName()).toBe(newName)
     })
+
+    it("should activate customer", () => {
+      const customer = new Customer("123", "customer 1",)
+      const address = new Address("Street 1", 1243, "12343-124", "Beagá")
+      customer.addAddress(address)
+
+      customer.activate()
+
+       expect(customer.isActive()).toBe(true)
+    })
+    
 })
