@@ -21,6 +21,10 @@ export class Customer {
         }
     }
 
+    getName() {
+        return this._name
+    }
+
     changeName(name: string) {
         this._name = name
         this.validate()

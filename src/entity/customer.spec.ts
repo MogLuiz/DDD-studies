@@ -12,4 +12,13 @@ describe("Customer unir tests", () => {
         new Customer("123", "")
        }).toThrowError("Name is required")
     })
+
+    it("should change name", () => {
+      const newName = "John"
+      const customer = new Customer("123", "any")
+
+      customer.changeName(newName)
+
+       expect(customer.getName()).toBe(newName)
+    })
 })
