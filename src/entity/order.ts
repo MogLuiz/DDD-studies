@@ -18,6 +18,9 @@ export class Order {
     if (this._id.length === 0) {
       throw new Error("Id is required");
     }
+    if (this._customerId.length === 0) {
+      throw new Error("customerId is required");
+    }
     return true;
   }
 
