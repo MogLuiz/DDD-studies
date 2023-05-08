@@ -6,4 +6,9 @@ describe("Order unit tests", () => {
       new Order("", "123", []);
     }).toThrowError("Id is required");
   });
+  it("should throw error when customerId is empty", () => {
+    expect(() => {
+      new Order("123", "", []);
+    }).toThrowError("customerId is required");
+  });
 });
