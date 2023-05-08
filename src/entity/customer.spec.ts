@@ -1,44 +1,50 @@
-import { Address } from "./address"
-import { Customer } from "./customer"
+import { Address } from "./address";
+import { Customer } from "./customer";
 
-describe("Customer unir tests", () => {
-    it("should throw new error when id is empty", () => {
-       expect(() => {
-        new Customer("", "John Doe")
-       }).toThrowError("Id is required")
-    })
+describe("Customer unit tests", () => {
+  it("should throw new error when id is empty", () => {
+    expect(() => {
+      new Customer("", "John Doe");
+    }).toThrowError("Id is required");
+  });
 
-    it("should throw new error when name is empty", () => {
-       expect(() => {
-        new Customer("123", "")
-       }).toThrowError("Name is required")
-    })
+  it("should throw new error when name is empty", () => {
+    expect(() => {
+      new Customer("123", "");
+    }).toThrowError("Name is required");
+  });
 
-    it("should change name", () => {
-      const newName = "John"
-      const customer = new Customer("123", "any")
+  it("should change name", () => {
+    const newName = "John";
+    const customer = new Customer("123", "any");
 
-      customer.changeName(newName)
+    customer.changeName(newName);
 
-       expect(customer.getName()).toBe(newName)
-    })
+    expect(customer.getName()).toBe(newName);
+  });
 
-    it("should activate customer", () => {
-      const customer = new Customer("123", "customer 1",)
-      const address = new Address("Street 1", 1243, "12343-124", "Beagá")
-      customer.addAddress(address)
+  it("should activate customer", () => {
+    const customer = new Customer("123", "customer 1");
+    const address = new Address("Street 1", 1243, "12343-124", "Beagá");
+    customer.addAddress(address);
 
-      customer.activate()
+    customer.activate();
 
-       expect(customer.isActive()).toBe(true)
-    })
+    expect(customer.isActive()).toBe(true);
+  });
 
-    it("should deactivate customer", () => {
-      const customer = new Customer("123", "customer 1",)
+  it("should throw error when address is undefined when you activate a customer", () => {
+    expect(() => {
+      const customer = new Customer("123", "customer 1");
+      customer.activate();
+    }).toThrowError("Address is mandatory to activate a customer");
+  });
 
-      customer.deactivate()
+  it("should deactivate customer", () => {
+    const customer = new Customer("123", "customer 1");
 
-       expect(customer.isActive()).toBe(false)
-    })
-    
-})
+    customer.deactivate();
+
+    expect(customer.isActive()).toBe(false);
+  });
+});
