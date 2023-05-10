@@ -25,6 +25,15 @@ describe("Order unit tests", () => {
    
      product.changeName(newProductName)
 
-     expect(product.sumary().name).toBe(newProductName)
+     expect(product.summary().name).toBe(newProductName)
+  });
+
+  it("should change price", () => {
+     const newProductPrice = 369.90
+     const product = new Product("123", "Produto 1", 100);
+   
+     product.changePrice(newProductPrice)
+
+     expect(product.summary().price).toBe(newProductPrice)
   });
 });
