@@ -18,4 +18,13 @@ describe("Order unit tests", () => {
       new Product("123", "Produto 1", -20);
     }).toThrowError("Price must be greater than zero");
   });
+
+  it("should change name", () => {
+     const newProductName = "NewName"
+     const product = new Product("123", "Produto 1", 100);
+   
+     product.changeName(newProductName)
+
+     expect(product.sumary().name).toBe(newProductName)
+  });
 });
