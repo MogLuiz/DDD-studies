@@ -21,12 +21,12 @@ describe("Order unit tests", () => {
   });
 
   it("should calculate total", () => {
-    const item = new OrderItem("i1", "Item 1", 100);
-    const item2 = new OrderItem("i2", "Item 2", 500);
+    const item = new OrderItem("i1", "Item 1", 100, "p1", 2)
+    const item2 = new OrderItem("i2", "Item 2", 500, "p2", 2);
     const oder = new Order("order1", "customer1", [item, item2]);
 
     const total = oder.total()
 
-    expect(total).toBe(item.price + item2.price)
+    expect(total).toBe(1200)
   });
 });
