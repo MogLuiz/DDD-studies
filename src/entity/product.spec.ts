@@ -8,4 +8,9 @@ describe("Order unit tests", () => {
     }).toThrowError("Id is required")
   });
 
+  it("should throw error when name is empty", () => {
+    expect(() => {
+      const product = new Product("123", "", 100)
+    }).toThrowError("Name is required")
+  });
 });
