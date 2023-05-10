@@ -26,6 +26,10 @@ export class OrderItem {
     }
   }
 
+  get quantity() {
+    return this._quantity
+  }
+
   get price() {
     return this._price * this._quantity;
   }

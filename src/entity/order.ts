@@ -11,7 +11,7 @@ export class Order {
     this._customerId = customerId;
     this._items = items;
     this._total = this.total();
-    this.validate()
+    this.validate();
   }
 
   private validate() {
@@ -22,7 +22,10 @@ export class Order {
       throw new Error("customerId is required");
     }
     if (this._items.length === 0) {
-      throw new Error("Items are required")
+      throw new Error("Items are required");
+    }
+    if (this._items.some((item) => item.quantity <= 0)) {
+      throw new Error("Quantity must be grater than zero");
     }
     return true;
   }
