@@ -29,7 +29,12 @@ export class Product {
     this.validate()
   }
 
-  sumary() {
+  changePrice(price: number) {
+    this._price = price
+    this.validate()
+  }
+
+  summary() {
     return {
       name: this._name,
       price: this._price,
