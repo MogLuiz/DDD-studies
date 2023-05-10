@@ -21,6 +21,19 @@ export class Product {
     if (this._price < 0) {
       throw new Error("Price must be greater than zero");
     }
-    return true
+    return true;
+  }
+
+  changeName(name: string) {
+    this._name = name;
+    this.validate()
+  }
+
+  sumary() {
+    return {
+      name: this._name,
+      price: this._price,
+      id: this._id,
+    };
   }
 }
