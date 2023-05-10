@@ -17,9 +17,16 @@ export class OrderItem {
     this._price = price;
     this._productId = productId;
     this._quantity = quantity;
+    this.validate();
+  }
+
+  validate() {
+    if (this._quantity <= 0) {
+      throw new Error("Quantity must be grater than zero");
+    }
   }
 
   get price() {
-    return this._price * this._quantity
+    return this._price * this._quantity;
   }
 }
