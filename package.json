@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "@types/node": "^18.16.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.31.1",
+    "sequelize-typescript": "^2.1.5",
+    "sqlite3": "^5.1.6",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
