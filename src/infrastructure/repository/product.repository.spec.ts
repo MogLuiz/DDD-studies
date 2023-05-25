@@ -65,4 +65,18 @@ describe("Product repository test", () => {
 
     expect(productFound).toStrictEqual(product);
   })
+
+  it("should be able find all products", async () => {
+    const productRepository = new ProductRepository();
+    const product1 = new Product("1", "Product 1", 100);
+    const product2 = new Product("2", "Product 2", 200);
+
+    await productRepository.create(product1);
+    await productRepository.create(product2);
+
+    const products = await productRepository.findAll();
+
+    expect(products.length).toBe(2);
+    expect(products).toStrictEqual([product1, product2]);
+  })
 });
