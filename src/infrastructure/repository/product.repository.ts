@@ -12,12 +12,17 @@ export class ProductRepository implements IProductRepository {
   }
 
   async update(entity: Product): Promise<void> {
-    throw new Error("Method not implemented.");
+    await ProductModel.update({
+      name: entity.name,
+      price: entity.price,
+    }, {
+      where: { id: entity.id },
+    });
   }
 
   async find(id: string): Promise<Product> {
     const productModel = await ProductModel.findOne({ where: { id }});
-    
+
     return new Product(
       productModel.id,
       productModel.name,
