@@ -24,14 +24,25 @@ export class Product {
     return true;
   }
 
+  get id() {
+    return this._id;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get price() {
+    return this._price;
+  }
+
   changeName(name: string) {
     this._name = name;
-    this.validate()
+    this.validate();
   }
 
   changePrice(price: number) {
-    this._price = price
-    this.validate()
+    this._price = price;
+    this.validate();
   }
 
   summary() {
