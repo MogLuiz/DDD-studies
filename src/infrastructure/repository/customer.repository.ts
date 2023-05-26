@@ -61,6 +61,7 @@ export class CustomerRepository implements ICustomerRepository {
     const customersModel = await CustomerModel.findAll();
     return customersModel.map((customer) => {
       const customerEntity = new Customer(customer.id, customer.name);
+      customerEntity.addRewardPoints(customer.rewardPoints);
       customerEntity.address = new Address(
         customer.street,
         customer.number,
