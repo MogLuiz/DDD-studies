@@ -69,4 +69,16 @@ describe("Product repository test", () => {
       city: customer.address.city,
     });
   });
+
+  it("should be able to find a customer", async () => {
+    const customerRepository = new CustomerRepository();
+    const customer = new Customer("123", "Customer 1");
+    const address = new Address("Street 1", 1, "Zipcode 1", "City 1");
+    customer.address = address;
+    await customerRepository.create(customer);
+
+    const customerFound = await customerRepository.find(customer.id);
+
+    expect(customerFound).toStrictEqual(customer);
+  })
 });
