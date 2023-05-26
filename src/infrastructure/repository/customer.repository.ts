@@ -16,6 +16,7 @@ export class CustomerRepository implements ICustomerRepository {
       rewardPoints: entity.rewardPoints,
     });
   }
+
   async update(entity: Customer): Promise<void> {
     await CustomerModel.update(
       {
@@ -32,6 +33,7 @@ export class CustomerRepository implements ICustomerRepository {
       }
     );
   }
+
   async find(id: string): Promise<Customer> {
     let customerModel;
     try {
@@ -54,7 +56,18 @@ export class CustomerRepository implements ICustomerRepository {
     );
     return customer;
   }
-  findAll(): Promise<Customer[]> {
-    throw new Error("Method not implemented.");
+
+  async findAll(): Promise<Customer[]> {
+    const customersModel = await CustomerModel.findAll();
+    return customersModel.map((customer) => {
+      const customerEntity = new Customer(customer.id, customer.name);
+      customerEntity.address = new Address(
+        customer.street,
+        customer.number,
+        customer.zipcode,
+        customer.city
+      );
+      return customerEntity;
+    });
   }
 }
