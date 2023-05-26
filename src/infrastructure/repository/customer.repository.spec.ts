@@ -91,4 +91,21 @@ describe("Product repository test", () => {
       "Customer not found"
     );
   });
+
+  it("should be able to find all customers", async () => {
+    const customerRepository = new CustomerRepository();
+    const customer1 = new Customer("123", "Customer 1");
+    const address1 = new Address("Street 1", 1, "Zipcode 1", "City 1");
+    customer1.address = address1;
+    await customerRepository.create(customer1);
+
+    const customer2 = new Customer("456", "Customer 2");
+    const address2 = new Address("Street 2", 2, "Zipcode 2", "City 2");
+    customer2.address = address2;
+    await customerRepository.create(customer2);
+
+    const customersFound = await customerRepository.findAll();
+
+    expect(customersFound).toStrictEqual([customer1, customer2]);
+  });
 });
