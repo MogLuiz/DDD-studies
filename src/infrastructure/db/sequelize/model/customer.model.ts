@@ -13,16 +13,16 @@ export class CustomerModel extends Model {
   declare name: string;
 
   @Column({ allowNull: false })
-  declare street: number;
+  declare street: string;
 
   @Column({ allowNull: false })
   declare number: number;
 
   @Column({ allowNull: false })
-  declare zipcode: number;
+  declare zipcode: string;
 
   @Column({ allowNull: false })
-  declare city: number;
+  declare city: string;
 
   @Column({ allowNull: false })
   declare active: boolean;
