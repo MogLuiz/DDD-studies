@@ -20,13 +20,13 @@ describe("Customer unit tests", () => {
 
     customer.changeName(newName);
 
-    expect(customer.getName()).toBe(newName);
+    expect(customer.name).toBe(newName);
   });
 
   it("should activate customer", () => {
     const customer = new Customer("123", "customer 1");
     const address = new Address("Street 1", 1243, "12343-124", "Beagá");
-    customer.addAddress(address);
+    customer.address = address
 
     customer.activate();
 
