@@ -56,7 +56,9 @@ describe("Product repository test", () => {
     customer.changeAddress(new Address("Street 2", 2, "Zipcode 2", "City 2"));
     await customerRepository.update(customer);
 
-    const customerModel = await CustomerModel.findOne({ where: { id: customer.id } });
+    const customerModel = await CustomerModel.findOne({
+      where: { id: customer.id },
+    });
 
     expect(customerModel.toJSON()).toStrictEqual({
       id: customer.id,
@@ -80,5 +82,13 @@ describe("Product repository test", () => {
     const customerFound = await customerRepository.find(customer.id);
 
     expect(customerFound).toStrictEqual(customer);
-  })
+  });
+
+  it("should throw an error when customer not found", async () => {
+    const customerRepository = new CustomerRepository();
+
+    await expect(customerRepository.find("123")).rejects.toThrow(
+      "Customer not found"
+    );
+  });
 });
