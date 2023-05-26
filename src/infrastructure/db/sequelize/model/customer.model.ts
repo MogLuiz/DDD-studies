@@ -25,7 +25,7 @@ export class CustomerModel extends Model {
   declare city: number;
 
   @Column({ allowNull: false })
-  declare active: number;
+  declare active: boolean;
 
   @Column({ allowNull: false })
   declare rewardPoints: number;
