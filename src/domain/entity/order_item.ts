@@ -20,6 +20,18 @@ export class OrderItem {
     this.validate();
   }
 
+  get id() {
+    return this._id;
+  }
+
+  get name() { 
+    return this._name;
+  }
+
+  get productId() {
+    return this._productId;
+  }
+
   validate() {
     if (this._quantity <= 0) {
       throw new Error("Quantity must be grater than zero");

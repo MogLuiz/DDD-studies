@@ -31,7 +31,7 @@ export class OrderItemModel extends Model {
   declare order_id: string;
 
   @BelongsTo(() => OrderModel)
-  declare order: OrderModel;
+  declare order: ProductModel;
 
   @Column({ allowNull: false })
   declare quantity: number;
